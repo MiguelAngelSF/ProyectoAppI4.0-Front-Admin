@@ -1,0 +1,7 @@
+{
+  "name": "RideUTAdmin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
