@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+        <ion-title>Historial Viajes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary">
+    <ion-card *ngFor="let viaje1 of viajes">
+        <ion-card-header color="light">
+            <ion-card-title>Datos Peticion Viaje</ion-card-title>
+            <p>ID Viaje: {{viaje1._id}}</p>
+            <p>Tipo de Tarifa: {{viaje1.pago}}</p>
+            <p>Ubicacion de Destino: {{viaje1.destino}}</p>
+            <p>Ubicacion Actual: {{viaje1.actual}}</p>
+            <p>Fecha/Hora: {{viaje1.created_at}}</p>
+        </ion-card-header>
+
+    </ion-card>
+
+</ion-content>

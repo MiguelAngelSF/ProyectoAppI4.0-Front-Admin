@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-buttons class="icono" slot="start">
+            <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+        </ion-buttons>
+        <ion-title>Configuracion Perfil</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="secondary" class="ion-padding">
+    <div class="datos">
+        <ion-input placeholder="ID ACTUAL USUARIO" class="primary-input" [(ngModel)]="usu._id"></ion-input>
+        <ion-input placeholder="Nuevo Nombre?" class="primary-input" [(ngModel)]="usu.nombre"></ion-input>
+        <ion-input placeholder="Nuevo Email?" class="primary-input" [(ngModel)]="usu.email"></ion-input>
+        <ion-input placeholder="New Password?" type="password" class="primary-input" [(ngModel)]="usu.password"></ion-input>
+        <ion-input placeholder="Nueva Edad?" class="primary-input" [(ngModel)]="usu.edad"></ion-input>
+    </div>
+    <ion-item>
+        <ion-label position="floating">Nuevo Genero?</ion-label>
+        <ion-select [(ngModel)]="usu.genero" placeholder="Selecciona">
+            <ion-select-option value="Femenino">Femenino</ion-select-option>
+            <ion-select-option value="Masculino">Masculino</ion-select-option>
+        </ion-select>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-label position="floating">Tipo de usuario</ion-label>
+      <ion-select [(ngModel)]="admin.tipoUsuario" placeholder="Selecciona">
+          <ion-select-option value="Pasajero">Pasajero</ion-select-option>
+          <ion-select-option value="Conductor">Conductor</ion-select-option>
+          <ion-select-option value="Conductor">Administrador</ion-select-option>
+      </ion-select>
+  </ion-item> -->
+
+    <div class="ion-margin-top">
+        <ion-button expand="block" (click)="putUsuario()">Actualizar Campos</ion-button>
+    </div>
+    <h2>Posibles Candidatos</h2>
+    <ion-card *ngFor="let usuario of usuarios" [ngClass]="usuario.genero=='Femenino'?'mujer':'hombre'">
+        <div class="usuarios">
+            <ion-card-header>
+                <ion-card-title>ID Usuario: {{usuario._id}}</ion-card-title><br>
+                <ion-card-title>Nombre: {{usuario.nombre}}</ion-card-title><br>
+                <ion-card-title>Tipo Usuario: {{usuario.tipoUsuario}}</ion-card-title><br>
+            </ion-card-header>
+        </div>
+    </ion-card>
+
+</ion-content>

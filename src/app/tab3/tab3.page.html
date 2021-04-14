@@ -1,17 +1,23 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="success">
+        <ion-title class="titulo">
+            Reportes y Alertas
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content color="secondary">
+    <h2>Ultimas Actualizaciones</h2>
+    <ion-card *ngFor="let ale of alerta" [ngClass]="ale.descripcion=='Alerta de Robo'?'robo':'choque'">
+        <div>
+            <ion-card-header class="datos">
+                <ion-card-title>ID Alerta: {{ale._id}}</ion-card-title><br>
+                <ion-card-title>Tipo de Alerta: {{ale.descripcion}}</ion-card-title><br>
+                <ion-card-title>Hora Registro: {{ale.created_at}}</ion-card-title><br>
+                <div class="boton">
+                    <ion-button color="danger" (click)="deleteAlerts(ale._id)">Eliminar Alerta</ion-button>
+                </div>
+            </ion-card-header>
+        </div>
+    </ion-card>
 </ion-content>

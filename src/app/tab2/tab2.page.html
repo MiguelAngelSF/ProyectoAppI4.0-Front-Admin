@@ -1,17 +1,28 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="success">
+        <ion-title>
+            Ride Administrador
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content color="secondary" [fullscreen]="true">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118472.47144633476!2d-102.36134066139243!3d21.885879238927814!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ec143ae4d9fb%3A0x4016978679c5220!2sAguascalientes%2C%20Ags.!5e0!3m2!1ses-419!2smx!4v1618339768366!5m2!1ses-419!2smx"
+        width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <h2>USUARIOS CONECTADOS</h2>
+    <ion-card *ngFor="let usuario of usuarios" [ngClass]="usuario.genero=='Femenino'?'mujer':'hombre'">
+        <div class="usuarios">
+            <ion-card-header>
+                <ion-card-title>ID Usuario: {{usuario._id}}</ion-card-title><br>
+                <ion-card-title>Nombre: {{usuario.nombre}}</ion-card-title><br>
+                <ion-card-title>Email: {{usuario.email}}</ion-card-title>
+                <p>Edad: {{usuario.edad}}</p>
+                <p>Genero: {{usuario.genero}}</p>
+                <ion-card-title>Tipo Usuario: {{usuario.tipoUsuario}}</ion-card-title><br>
+                <div class="boton">
+                    <ion-button color="danger" (click)="deleteUser(usuario._id)">Eliminar Usuario</ion-button>
+                </div>
+            </ion-card-header>
+        </div>
+    </ion-card>
 </ion-content>
